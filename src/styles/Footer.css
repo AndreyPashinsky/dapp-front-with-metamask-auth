@@ -1,0 +1,57 @@
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+
+.ft {
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+  }
+
+.footer-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    color: #959596;
+    text-align: center;
+    background-color: white;
+    padding: 2em 3em 0 3em;
+    position: relative;
+    z-index: 5;
+  }
+  
+  .icons-container {
+    min-width: 185px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 1.25em;
+  }
+
+  .copyright {
+    color: #959596;
+    background-color: white;
+    text-align: center;
+    margin: 0;
+    padding: 2em 0;
+    position: relative;
+    z-index: 5;
+  }
+
+  .footer-logo {
+    color: #212427;
+  }
+  
+  .fa-brands {
+    color: #ABB6B7;
+    font-size: 1.5em;
+  }
+  
+  .li {
+    margin-top: 0.75em;
+    color: #676767;
+  }
+  
