@@ -1,67 +1,32 @@
-import React, { useState } from 'react';
+import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import {
-  decrement,
-  increment,
-  incrementByAmount,
-  incrementAsync,
-  incrementIfOdd,
-  selectCount,
-} from './counterSlice';
-import styles from './Counter.module.css';
+import { connectMetaAsync, decrement } from './counterSlice';
+import { Icon } from '@iconify/react';
+import truncateEthAddress from 'truncate-eth-address'
 
 export function Counter() {
-  const count = useSelector(selectCount);
+  
   const dispatch = useDispatch();
-  const [incrementAmount, setIncrementAmount] = useState('2');
+  const { account } = useSelector((state) => state.counter)
 
-  const incrementValue = Number(incrementAmount) || 0;
-
+  useEffect(() => {    
+    if (window.ethereum) {      
+      window.ethereum.on("accountsChanged", () => dispatch(connectMetaAsync()));
+      window.ethereum.on("chainChanged", () => dispatch(decrement()));           
+    }  
+  }, []);
+  
   return (
-    <div>
-      <div className={styles.row}>
-        <button
-          className={styles.button}
-          aria-label="Decrement value"
-          onClick={() => dispatch(decrement())}
-        >
-          -
-        </button>
-        <span className={styles.value}>{count}</span>
-        <button
-          className={styles.button}
-          aria-label="Increment value"
-          onClick={() => dispatch(increment())}
-        >
-          +
-        </button>
-      </div>
-      <div className={styles.row}>
-        <input
-          className={styles.textbox}
-          aria-label="Set increment amount"
-          value={incrementAmount}
-          onChange={(e) => setIncrementAmount(e.target.value)}
-        />
-        <button
-          className={styles.button}
-          onClick={() => dispatch(incrementByAmount(incrementValue))}
-        >
-          Add Amount
-        </button>
-        <button
-          className={styles.asyncButton}
-          onClick={() => dispatch(incrementAsync(incrementValue))}
-        >
-          Add Async
-        </button>
-        <button
-          className={styles.button}
-          onClick={() => dispatch(incrementIfOdd(incrementValue))}
-        >
-          Add If Odd
-        </button>
-      </div>
+    <div
+      className={ account ? "connect-btn-true" : "connect-btn-false" }
+      onClick={() => dispatch(connectMetaAsync())}
+    >
+      { account ? 
+          <div className="btn-container">
+          <Icon className="metaIcon" icon="logos:metamask-icon" width="20" />
+          {truncateEthAddress(account.toString())}
+          <Icon className="attachIcon" icon="et:attachments" width="15" />
+          </div>  : "Connect Wallet" }      
     </div>
   );
 }
