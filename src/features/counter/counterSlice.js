@@ -14,6 +14,7 @@ export const connectMetaAsync = createAsyncThunk(
         const response = await window.ethereum.request({
           method: "eth_requestAccounts",
         })
+        console.log("clicked")
         return response
       } catch (err) {
         console.error(err);
