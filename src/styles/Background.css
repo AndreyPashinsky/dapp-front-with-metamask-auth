@@ -1,17 +1,14 @@
 .area {
     background-color: #F0F5F5;
-    width: 100%;
-    height: 100vh;
-    position: relative;
-    z-index: 0;
+    height: 85vh;
 }
-/* /*  */
+
 .shape-1,
 .shape-2,
 .shape-3,
 .shape-4 {
-  width: 45%;
-  height: 35%;
+  width: 20%;
+  height: 10%;
   border-radius: 50%;
   /* animation: move 18s ease-in-out infinite; */
 }
@@ -54,7 +51,7 @@
     opacity: 0.55;
     transform: rotate(-150deg);
     filter: blur(100px);
-  }
+  } 
 /* 
   @keyframes move {
     0% {
