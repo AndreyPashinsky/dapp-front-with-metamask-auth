@@ -14,7 +14,6 @@ export const connectMetaAsync = createAsyncThunk(
         const response = await window.ethereum.request({
           method: "eth_requestAccounts",
         })
-        console.log("clicked")
         return response
       } catch (err) {
         console.error(err);
@@ -26,11 +25,11 @@ export const connectMetaAsync = createAsyncThunk(
   }
 );
 
-export const counterSlice = createSlice({
-  name: 'counter',
+export const MetamaskConnectSlice = createSlice({
+  name: 'metamaskconnect',
   initialState,
   reducers: {
-    decrement: (state) => {
+    setAccount: (state) => {
       state.account = null;
     },
   },
@@ -51,11 +50,11 @@ export const counterSlice = createSlice({
   },
 });
 
-export const { decrement } = counterSlice.actions;
+export const { setAccount } = MetamaskConnectSlice.actions;
 
 // The function below is called a selector and allows us to select a value from
 // the state. Selectors can also be defined inline where they're used instead of
 // in the slice file. For example: `useSelector((state: RootState) => state.counter.value)`
 export const selectCount = (state) => state.counter.value;
 
-export default counterSlice.reducer;
+export default MetamaskConnectSlice.reducer;

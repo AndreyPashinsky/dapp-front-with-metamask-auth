@@ -4,7 +4,7 @@ import PageWrapper from './PageWrapper'
 const BuyLimit = () => {
   return (
     <PageWrapper>
-        <div>BuyLimit</div>
+        <div></div>
     </PageWrapper>
   )
 }
