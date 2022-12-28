@@ -7,8 +7,8 @@
 .shape-2,
 .shape-3,
 .shape-4 {
-  width: 20%;
-  height: 10%;
+  width: 23%;
+  height: 12%;
   border-radius: 50%;
   /* animation: move 18s ease-in-out infinite; */
 }
@@ -16,9 +16,9 @@
 .shape-1 {
     position: absolute;
     top: 10%;
-    left: 5%;
+    left: 8%;
     background-color: #B2F1DE;
-    opacity: 0.55;
+    opacity: 0.75;
     transform: rotate(35deg);
     filter: blur(100px);
   }
@@ -26,19 +26,19 @@
   .shape-2 {
     position: absolute;
     bottom: 20%;
-    left: 5%;
+    left: 8%;
     background-color: #3AC922;
-    opacity: 0.15;
+    opacity: 0.35;
     transform: rotate(-35deg);
     filter: blur(100px);
   }
   
   .shape-3 {
     position: absolute;
-    right: 5%;
+    right: 8%;
     top: 10%;
     background-color: #3AC922;
-    opacity: 0.15;
+    opacity: 0.35;
     transform: rotate(150deg);
     filter: blur(100px);
   }
@@ -46,9 +46,9 @@
   .shape-4 {
     position: absolute;
     bottom: 20%;
-    right: 5%;
+    right: 8%;
     background-color: #B2F1DE;
-    opacity: 0.55;
+    opacity: 0.75;
     transform: rotate(-150deg);
     filter: blur(100px);
   } 
