@@ -1,20 +1,27 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { connectMetaAsync, decrement } from './counterSlice';
+import { connectMetaAsync, setAccount } from './MetamaskConnectSlice';
 import { Icon } from '@iconify/react';
 import truncateEthAddress from 'truncate-eth-address'
 
-export function Counter() {
+export function MetamaskConnect() {
   
   const dispatch = useDispatch();
+  const dispatch_connectMetamaskAsync = () => dispatch(connectMetaAsync())
+  const dispatch_changeAccountsAsync = () => dispatch(setAccount())
   const { account } = useSelector((state) => state.counter)
+  
 
   useEffect(() => {    
     if (window.ethereum) {      
-      window.ethereum.on("accountsChanged", () => dispatch(connectMetaAsync()));
-      window.ethereum.on("chainChanged", () => dispatch(decrement()));           
+      window.ethereum.on("accountsChanged", dispatch_connectMetamaskAsync);
+      window.ethereum.on("chainChanged", dispatch_changeAccountsAsync);           
     }  
-  }, []);
+    return () => {
+      window.ethereum.removeListener("accountsChanged", dispatch_connectMetamaskAsync);
+      window.ethereum.removeListener("chainChanged", dispatch_changeAccountsAsync); 
+    }
+  }, );
   
   return (
     <div

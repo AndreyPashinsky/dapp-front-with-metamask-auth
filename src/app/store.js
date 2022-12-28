@@ -1,8 +1,8 @@
 import { configureStore } from '@reduxjs/toolkit';
-import counterReducer from '../features/counter/counterSlice';
+import MetamaskConnectReducer from '../features/Metamask/MetamaskConnectSlice';
 
 export const store = configureStore({
   reducer: {
-    counter: counterReducer,
+    counter: MetamaskConnectReducer,
   },
 });
