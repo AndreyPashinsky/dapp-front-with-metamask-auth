@@ -6,7 +6,7 @@ const Footer = () => {
     return (
     <div className="ft">
         <div className="footer-container">
-            <h1 className="footer-logo">SFXDX</h1>
+            <h1 className="footer-logo">Dapp</h1>
             <div className="ul-no-bullets">
                 <ul>
                     <li className="li">Privacy Policy</li>
@@ -21,7 +21,7 @@ const Footer = () => {
                 <i className="fa-brands fa-square-instagram"></i>
             </div>
         </div>
-        <p className="copyright">©2022 All rights reserved. Powered by SFXDX</p>
+        <p className="copyright">©2022 All rights reserved. Powered by Pashinsky</p>
     </div>
   )
 }
